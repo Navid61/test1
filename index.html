@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Redirecting to Form...</title>
+  </head>
+  <body>
+    <h3>Please wait... Getting your location</h3>
+
+    <script>
+      navigator.geolocation.getCurrentPosition(function (position) {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+
+        // Your Google Form base URL
+        const baseUrl = "https://docs.google.com/forms/d/e/1FAIpQLScobkNWbcv4Y9bLo-1du8TZU1Ahg6rCq5vZtIal2BnT9kzQQA/viewform";
+
+        // Replace entry.XXX with your actual field IDs
+        const url = `${baseUrl}?entry.911682724=${lat}&entry.1462144052=${lon}`;
+
+        // Redirect user to the Google Form with prefilled GPS
+        window.location.href = url;
+
+      }, function (error) {
+        alert("Location access denied or unavailable. Please enable location and refresh the page.");
+      });
+    </script>
+  </body>
+</html>
