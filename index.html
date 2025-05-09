@@ -12,10 +12,10 @@
         const lon = position.coords.longitude;
 
         // Your Google Form base URL
-        const baseUrl = "https://docs.google.com/forms/d/e/1FAIpQLScobkNWbcv4Y9bLo-1du8TZU1Ahg6rCq5vZtIal2BnT9kzQQA/viewform";
+        const baseUrl = "https://docs.google.com/forms/d/e/1FAIpQLScPhrGIgCZnDIZdyfLCYLCj7YgE6FujGhVdpwdvX6SH-clxDA/viewform?usp=pp_url";
 
         // Replace entry.XXX with your actual field IDs
-        const url = `${baseUrl}?entry.911682724=${lat}&entry.1462144052=${lon}`;
+        const url = `${baseUrl}&entry.2132363747=${lat}&entry.1035465304=${lon}`;
 
         // Redirect user to the Google Form with prefilled GPS
         window.location.href = url;
