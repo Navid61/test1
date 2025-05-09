@@ -1,28 +1,41 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Redirecting to Form...</title>
-  </head>
-  <body>
-    <h3>Please wait... Getting your location</h3>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting to Google Form</title>
+  <script>
+    // Wait for the page to load
+    window.onload = function () {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          function (position) {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
 
-    <script>
-      navigator.geolocation.getCurrentPosition(function (position) {
-        const lat = position.coords.latitude;
-        const lon = position.coords.longitude;
+            // ✅ Your base Google Form URL (keep usp=pp_url or remove it)
+            const baseUrl = "https://docs.google.com/forms/d/e/1FAIpQLScbJsezG0-gT_hP8APUUPM2S3cRSXMPghlXkp8uqx7RLWWPgg/viewform?usp=pp_url";
 
-        // Your Google Form base URL
-        const baseUrl = "https://docs.google.com/forms/d/e/1FAIpQLScPhrGIgCZnDIZdyfLCYLCj7YgE6FujGhVdpwdvX6SH-clxDA/viewform";
+            // ✅ Replace with your actual Google Form field entry IDs
+            const latField = "entry.1612183245";
+            const lonField = "entry.1243186201";
 
-        // Replace entry.XXX with your actual field IDs
-        const url = `${baseUrl}?usp=pp_url&entry.2132363747=${lat}&entry.1035465304=${lon}`;
+            // Construct the full URL with prefilled values
+            const fullUrl = `${baseUrl}&${latField}=${lat}&${lonField}=${lon}`;
 
-        // Redirect user to the Google Form with prefilled GPS
-        window.location.href = url;
-
-      }, function (error) {
-        alert("Location access denied or unavailable. Please enable location and refresh the page.");
-      });
-    </script>
-  </body>
+            // Redirect to the Google Form
+            window.location.href = fullUrl;
+          },
+          function (error) {
+            alert("Unable to get your location. Please enable location services and refresh the page.");
+          }
+        );
+      } else {
+        alert("Geolocation is not supported by your browser.");
+      }
+    };
+  </script>
+</head>
+<body>
+  <h2>Please wait, redirecting to the survey...</h2>
+</body>
 </html>
