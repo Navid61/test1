@@ -12,12 +12,14 @@
             const lat = position.coords.latitude;
             const lon = position.coords.longitude;
 
+            // https://docs.google.com/forms/d/e/1FAIpQLSeR9KlU-NRLaUg72jlxcrP83LNwC4Bx_KU3X3FLB0o696mXoA/viewform?usp=pp_url&entry.1097668571=0.0&entry.1523445206=0.0
+
             // ✅ Your base Google Form URL (keep usp=pp_url or remove it)
-            const baseUrl = "https://docs.google.com/forms/d/e/1FAIpQLScbJsezG0-gT_hP8APUUPM2S3cRSXMPghlXkp8uqx7RLWWPgg/viewform?usp=pp_url";
+            const baseUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeR9KlU-NRLaUg72jlxcrP83LNwC4Bx_KU3X3FLB0o696mXoA/viewform?usp=pp_url";
 
             // ✅ Replace with your actual Google Form field entry IDs
-            const latField = "entry.1612183245";
-            const lonField = "entry.1243186201";
+            const latField = "entry.1097668571";
+            const lonField = "entry.1523445206";
 
             // Construct the full URL with prefilled values
             const fullUrl = `${baseUrl}&${latField}=${lat}&${lonField}=${lon}`;
